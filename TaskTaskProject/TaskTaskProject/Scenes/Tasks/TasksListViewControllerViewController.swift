@@ -21,6 +21,11 @@ final class TTPTasksListViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Search"
         textField.borderStyle = .roundedRect
+        let image = UIImage(systemName: "magnifyingglass")
+        let rightImageView = UIImageView(image: image)
+        rightImageView.tintColor = .black
+        textField.rightViewMode = .always
+        textField.rightView = rightImageView
         return textField
     }()
     
