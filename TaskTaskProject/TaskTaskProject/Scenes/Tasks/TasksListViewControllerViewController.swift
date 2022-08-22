@@ -11,6 +11,7 @@ import SnapKit
 
 protocol TTPTasksListView: TTPView {
     func reloadTable(willShowLoader: Bool)
+    func showAlertController()
 }
 
 final class TTPTasksListViewController: UIViewController {
@@ -42,6 +43,7 @@ final class TTPTasksListViewController: UIViewController {
     private func setupSearchController() {
         searchController.loadViewIfNeeded()
         searchController.searchResultsUpdater = self
+        searchController.searchBar.isUserInteractionEnabled = false
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
@@ -91,6 +93,15 @@ extension TTPTasksListViewController: TTPTasksListView {
             toggleLoader()
         }
     }
+    
+    func showAlertController() {
+        let alert = UIAlertController(title: "Something Happened", message: "Somehitng went wrong try again later.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Try Again", comment: "Default action"), style: .default, handler: { _ in
+            guard let presenter = self.presenter as? TTPTasksListPresenterProtocol else { return }
+            presenter.viewDidLoad()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension TTPTasksListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -121,6 +132,4 @@ extension TTPTasksListViewController: UISearchResultsUpdating, UISearchBarDelega
         guard let presenter = presenter as? TTPTasksListPresenterProtocol else { return }
         presenter.searchTastk(with: searchText)
     }
-    
-    
 }

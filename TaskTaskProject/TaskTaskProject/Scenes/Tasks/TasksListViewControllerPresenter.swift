@@ -78,7 +78,8 @@ extension TTPTasksListPresenter {
     }
     
     func didFailedFetch() {
-        
+        guard let view = view as? TTPTasksListView else { return }
+        view.showAlertController()
     }
 }
 
