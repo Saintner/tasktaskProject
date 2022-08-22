@@ -24,6 +24,11 @@
 		CE443AC228B2FFF800D2C0FF /* TaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AC128B2FFF800D2C0FF /* TaskPresenter.swift */; };
 		CE443AC428B301A900D2C0FF /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AC328B301A900D2C0FF /* TaskView.swift */; };
 		CE443AC628B301D100D2C0FF /* TaskRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AC528B301D100D2C0FF /* TaskRouter.swift */; };
+		CE443AC928B3119000D2C0FF /* TTPRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AC828B3119000D2C0FF /* TTPRestApi.swift */; };
+		CE443ACB28B3158500D2C0FF /* TTPEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443ACA28B3158500D2C0FF /* TTPEndpoint.swift */; };
+		CE443ACD28B316B300D2C0FF /* TTPAppEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443ACC28B316B300D2C0FF /* TTPAppEndpoint.swift */; };
+		CE443ACF28B31B3C00D2C0FF /* TTPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443ACE28B31B3C00D2C0FF /* TTPConstants.swift */; };
+		CE443AD128B31FB400D2C0FF /* TTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AD028B31FB400D2C0FF /* TTPError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		CE443AC128B2FFF800D2C0FF /* TaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPresenter.swift; sourceTree = "<group>"; };
 		CE443AC328B301A900D2C0FF /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		CE443AC528B301D100D2C0FF /* TaskRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRouter.swift; sourceTree = "<group>"; };
+		CE443AC828B3119000D2C0FF /* TTPRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPRestApi.swift; sourceTree = "<group>"; };
+		CE443ACA28B3158500D2C0FF /* TTPEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPEndpoint.swift; sourceTree = "<group>"; };
+		CE443ACC28B316B300D2C0FF /* TTPAppEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPAppEndpoint.swift; sourceTree = "<group>"; };
+		CE443ACE28B31B3C00D2C0FF /* TTPConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPConstants.swift; sourceTree = "<group>"; };
+		CE443AD028B31FB400D2C0FF /* TTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +126,7 @@
 		CE443A7C28B2AF6F00D2C0FF /* TaskTaskProject */ = {
 			isa = PBXGroup;
 			children = (
+				CE443AC728B310E800D2C0FF /* Gateaway */,
 				CE443ABE28B2FD7700D2C0FF /* Common */,
 				CE443AB528B2F62700D2C0FF /* Models */,
 				CE443AAE28B2B02D00D2C0FF /* Scenes */,
@@ -169,6 +180,7 @@
 		CE443AB528B2F62700D2C0FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE443AD028B31FB400D2C0FF /* TTPError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,8 +192,19 @@
 				CE443AC128B2FFF800D2C0FF /* TaskPresenter.swift */,
 				CE443AC328B301A900D2C0FF /* TaskView.swift */,
 				CE443AC528B301D100D2C0FF /* TaskRouter.swift */,
+				CE443ACE28B31B3C00D2C0FF /* TTPConstants.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CE443AC728B310E800D2C0FF /* Gateaway */ = {
+			isa = PBXGroup;
+			children = (
+				CE443AC828B3119000D2C0FF /* TTPRestApi.swift */,
+				CE443ACA28B3158500D2C0FF /* TTPEndpoint.swift */,
+				CE443ACC28B316B300D2C0FF /* TTPAppEndpoint.swift */,
+			);
+			path = Gateaway;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,14 +344,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE443AC928B3119000D2C0FF /* TTPRestApi.swift in Sources */,
 				CE443ABC28B2F8D900D2C0FF /* TasksListViewControllerViewController.swift in Sources */,
 				CE443AC628B301D100D2C0FF /* TaskRouter.swift in Sources */,
+				CE443ACD28B316B300D2C0FF /* TTPAppEndpoint.swift in Sources */,
 				CE443A7E28B2AF6F00D2C0FF /* AppDelegate.swift in Sources */,
+				CE443AD128B31FB400D2C0FF /* TTPError.swift in Sources */,
 				CE443AC428B301A900D2C0FF /* TaskView.swift in Sources */,
+				CE443ACF28B31B3C00D2C0FF /* TTPConstants.swift in Sources */,
 				CE443AC228B2FFF800D2C0FF /* TaskPresenter.swift in Sources */,
 				CE443ABB28B2F8D900D2C0FF /* TasksListViewControllerInteractor.swift in Sources */,
 				CE443ABD28B2F8D900D2C0FF /* TasksListViewControllerRouter.swift in Sources */,
 				CE443AC028B2FE9400D2C0FF /* TaskInteractor.swift in Sources */,
+				CE443ACB28B3158500D2C0FF /* TTPEndpoint.swift in Sources */,
 				CE443ABA28B2F8D900D2C0FF /* TasksListViewControllerPresenter.swift in Sources */,
 				CE443A8028B2AF6F00D2C0FF /* SceneDelegate.swift in Sources */,
 			);
