@@ -8,5 +8,7 @@
 import Foundation
 
 protocol TTPPresenter {
-    
+    var view: TTPView! { get set }
+    var interactor: TTPInteractor! { get set }
+    var router: TTPRouter! { get set }
 }

@@ -8,14 +8,33 @@
 
 import UIKit
 
-protocol TTPTasksListViewControllerRouterProtocol {}
+protocol TTPTasksListRouterProtocol: TTPRouter {}
 
-class TTPTasksListViewControllerRouter: TTPTasksListViewControllerRouterProtocol {
+class TTPTasksListRouter: TTPTasksListRouterProtocol {
+    var remoteModelCollection: TTPRestAPI?
     
-    private unowned let viewController: UIViewController
+    var entry: EntryPoint?
     
-    init(viewController: UIViewController) {
-        self.viewController = viewController
+    static func start() -> TTPRouter {
+        let remoteModelCollection = TTPRestAPI()
+        
+        var view: TTPView = TTPTasksListViewController()
+        let router = TTPTasksListRouter()
+        var presenter: TTPTasksListPresenterProtocol = TTPTasksListPresenter()
+        var interactor: TTPTasksListInteractorProtocol = TTPTasksListInteractor(networkManager: remoteModelCollection)
+        
+        
+        presenter.router = router
+        presenter.view = view
+//        presenter.delegate = view as? TVGShowsListPresenterDelegate
+        presenter.interactor = interactor
+        
+        view.presenter = presenter
+        
+        interactor.presenter = presenter
+        interactor.output = presenter
+        router.entry = view as? EntryPoint
+        return router
     }
     
 }

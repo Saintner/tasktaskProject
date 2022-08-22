@@ -8,5 +8,5 @@
 import Foundation
 
 protocol TTPView {
-    
+    var presenter: TTPPresenter! { get set }
 }

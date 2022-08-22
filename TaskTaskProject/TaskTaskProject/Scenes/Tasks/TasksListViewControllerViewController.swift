@@ -8,20 +8,22 @@
 
 import UIKit
 
-protocol TTPTasksListViewControllerView: TTPView {}
+protocol TTPTasksListView: TTPView {}
 
-final class TTPTasksListViewControllerViewController: UIViewController {
+final class TTPTasksListViewController: UIViewController {
     
-    var presenter: TTPTasksListViewControllerPresenterProtocol!
+    var presenter: TTPPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        guard let presenter = presenter as? TTPTasksListPresenter else { return }
+        presenter.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
 }
 
-extension TTPTasksListViewControllerViewController: TTPTasksListViewControllerView {
+extension TTPTasksListViewController: TTPTasksListView {
     
 }

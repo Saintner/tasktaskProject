@@ -8,16 +8,32 @@
 
 import UIKit
 
-protocol TTPTasksListViewControllerPresenterProtocol: TTPPresenter {}
+protocol TTPTasksListPresenterProtocol: TTPPresenter, TTPTaskListInteractorOuput {
+    func viewDidLoad()
+}
 
-final class TTPTasksListViewControllerPresenter {
+final class TTPTasksListPresenter {
     
-    var view: TTPTasksListViewControllerView!
-    var interactor: TTPTasksListViewControllerInteractorProtocol!
-    var router: TTPTasksListViewControllerRouterProtocol!
+    var view: TTPView!
+    var interactor: TTPInteractor!
+    var router: TTPRouter! 
     
 }
 
-extension TTPTasksListViewControllerPresenter: TTPTasksListViewControllerPresenterProtocol {
-    
+extension TTPTasksListPresenter: TTPTasksListPresenterProtocol {
+    func viewDidLoad() {
+        guard let interactor = interactor as? TTPTasksListInteractorProtocol else { return }
+        interactor.fetchTasksList()
+    }
 }
+
+extension TTPTasksListPresenter {
+    func didFetchTasksList(with tasks: [Task]) {
+        
+    }
+    
+    func didFailedFetch() {
+        
+    }
+}
+

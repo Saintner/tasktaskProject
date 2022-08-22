@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
+typealias EntryPoint = TTPView & UIViewController
 protocol TTPRouter {
-    
+    var entry: EntryPoint? { get }
+    static func start() -> TTPRouter
 }

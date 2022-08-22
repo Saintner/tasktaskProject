@@ -7,6 +7,11 @@
 
 import Foundation
 
-protocol TTPInterator {
+protocol TTPInteractor {
+    var presenter: TTPPresenter! { get set }
+    var output: TTPInteractorOutput? { get set }
+}
+
+protocol TTPInteractorOutput {
     
 }

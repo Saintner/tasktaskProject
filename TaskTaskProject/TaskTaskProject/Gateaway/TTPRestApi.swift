@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-// - TVGNetworkManagerProtocol defines the base protocol to manage remote API calls
+// - TTPRestAPIProtocol defines the base protocol to manage remote API calls
 protocol TTPRestAPIProtocol: AnyObject{
     // - main fetch from remote function
     func fetch<T>(type: T.Type,
@@ -17,7 +17,7 @@ protocol TTPRestAPIProtocol: AnyObject{
                                                                                        url: URL) -> AnyPublisher<[T], TTPError> where T: Decodable
 }
 
-// - TVGNetworkManager a final class to give a fetch an implementation
+// - TTPRestAPI a final class to give a fetch an implementation
 final class TTPRestAPI: TTPRestAPIProtocol {
     func fetchArray<T>(type: [T].Type, url: URL) -> AnyPublisher<[T], TTPError> where T : Decodable {
         return URLSession.shared.dataTaskPublisher(for: url)

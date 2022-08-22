@@ -29,6 +29,9 @@
 		CE443ACD28B316B300D2C0FF /* TTPAppEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443ACC28B316B300D2C0FF /* TTPAppEndpoint.swift */; };
 		CE443ACF28B31B3C00D2C0FF /* TTPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443ACE28B31B3C00D2C0FF /* TTPConstants.swift */; };
 		CE443AD128B31FB400D2C0FF /* TTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AD028B31FB400D2C0FF /* TTPError.swift */; };
+		CE443AD428B327E500D2C0FF /* TTPTasksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AD328B327E500D2C0FF /* TTPTasksRepository.swift */; };
+		CE443AD628B3283800D2C0FF /* TTPTaskRepositoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AD528B3283800D2C0FF /* TTPTaskRepositoryResponse.swift */; };
+		CE443AD828B328BB00D2C0FF /* TTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AD728B328BB00D2C0FF /* TTPTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		CE443ACC28B316B300D2C0FF /* TTPAppEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPAppEndpoint.swift; sourceTree = "<group>"; };
 		CE443ACE28B31B3C00D2C0FF /* TTPConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPConstants.swift; sourceTree = "<group>"; };
 		CE443AD028B31FB400D2C0FF /* TTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPError.swift; sourceTree = "<group>"; };
+		CE443AD328B327E500D2C0FF /* TTPTasksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPTasksRepository.swift; sourceTree = "<group>"; };
+		CE443AD528B3283800D2C0FF /* TTPTaskRepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPTaskRepositoryResponse.swift; sourceTree = "<group>"; };
+		CE443AD728B328BB00D2C0FF /* TTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				CE443AD028B31FB400D2C0FF /* TTPError.swift */,
+				CE443AD528B3283800D2C0FF /* TTPTaskRepositoryResponse.swift */,
+				CE443AD728B328BB00D2C0FF /* TTPTask.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,11 +208,20 @@
 		CE443AC728B310E800D2C0FF /* Gateaway */ = {
 			isa = PBXGroup;
 			children = (
+				CE443AD228B327B800D2C0FF /* TTPTasksRepository */,
 				CE443AC828B3119000D2C0FF /* TTPRestApi.swift */,
 				CE443ACA28B3158500D2C0FF /* TTPEndpoint.swift */,
 				CE443ACC28B316B300D2C0FF /* TTPAppEndpoint.swift */,
 			);
 			path = Gateaway;
+			sourceTree = "<group>";
+		};
+		CE443AD228B327B800D2C0FF /* TTPTasksRepository */ = {
+			isa = PBXGroup;
+			children = (
+				CE443AD328B327E500D2C0FF /* TTPTasksRepository.swift */,
+			);
+			path = TTPTasksRepository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE443AC928B3119000D2C0FF /* TTPRestApi.swift in Sources */,
+				CE443AD428B327E500D2C0FF /* TTPTasksRepository.swift in Sources */,
 				CE443ABC28B2F8D900D2C0FF /* TasksListViewControllerViewController.swift in Sources */,
 				CE443AC628B301D100D2C0FF /* TaskRouter.swift in Sources */,
 				CE443ACD28B316B300D2C0FF /* TTPAppEndpoint.swift in Sources */,
@@ -354,7 +372,9 @@
 				CE443ACF28B31B3C00D2C0FF /* TTPConstants.swift in Sources */,
 				CE443AC228B2FFF800D2C0FF /* TaskPresenter.swift in Sources */,
 				CE443ABB28B2F8D900D2C0FF /* TasksListViewControllerInteractor.swift in Sources */,
+				CE443AD628B3283800D2C0FF /* TTPTaskRepositoryResponse.swift in Sources */,
 				CE443ABD28B2F8D900D2C0FF /* TasksListViewControllerRouter.swift in Sources */,
+				CE443AD828B328BB00D2C0FF /* TTPTask.swift in Sources */,
 				CE443AC028B2FE9400D2C0FF /* TaskInteractor.swift in Sources */,
 				CE443ACB28B3158500D2C0FF /* TTPEndpoint.swift in Sources */,
 				CE443ABA28B2F8D900D2C0FF /* TasksListViewControllerPresenter.swift in Sources */,
