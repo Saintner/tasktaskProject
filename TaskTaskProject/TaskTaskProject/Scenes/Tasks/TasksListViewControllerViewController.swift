@@ -10,27 +10,31 @@ import UIKit
 import SnapKit
 
 protocol TTPTasksListView: TTPView {
-    func reloadTable()
+    func reloadTable(willShowLoader: Bool)
 }
 
 final class TTPTasksListViewController: UIViewController {
     
     var presenter: TTPPresenter!
     
-    let searchController = UISearchController()
+    private let searchController = UISearchController()
     
     private lazy var tasksTableView: UITableView = {
         let table = UITableView()
         table.register(TTPTasksSubtitleTableViewCell.self, forCellReuseIdentifier: "cell")
+        table.isHidden = true
         return table
     }()
     
+    private lazy var loader = UIActivityIndicatorView()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         guard let presenter = presenter as? TTPTasksListPresenter else { return }
         presenter.viewDidLoad()
         setupSearchController()
+        setupActivityIndicatorView()
         setupTasksTableView()
         // Do any additional setup after loading the view.
     }
@@ -49,17 +53,43 @@ final class TTPTasksListViewController: UIViewController {
         tasksTableView.delegate = self
         tasksTableView.dataSource = self
         tasksTableView.snp.makeConstraints { make in
-            make.topMargin.equalTo(50)
+            make.topMargin.equalTo(20)
             make.leading.equalTo(10)
             make.trailing.equalTo(-28)
             make.bottomMargin.equalTo(-40)
         }
     }
+    
+    private func setupActivityIndicatorView() {
+        loader.transform = CGAffineTransform(scaleX: 3, y: 3)
+        view.addSubview(loader)
+        loader.startAnimating()
+        loader.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            
+        }
+    }
+    
+    private func toggleLoader(){
+        if loader.isHidden {
+            tasksTableView.isHidden = true
+            searchController.searchBar.isUserInteractionEnabled = false
+            loader.isHidden = false
+        }else {
+            tasksTableView.isHidden = false
+            searchController.searchBar.isUserInteractionEnabled = true
+            loader.isHidden = true
+        }
+        view.layoutSubviews()
+    }
 }
 
 extension TTPTasksListViewController: TTPTasksListView {
-    func reloadTable() {
+    func reloadTable(willShowLoader: Bool) {
         tasksTableView.reloadData()
+        if willShowLoader {
+            toggleLoader()
+        }
     }
 }
 

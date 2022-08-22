@@ -64,7 +64,7 @@ extension TTPTasksListPresenter: TTPTasksListPresenterProtocol {
            return task.overrideName.lowercased().contains(text!.lowercased())
         })
         guard let view = view as? TTPTasksListView else { return }
-        view.reloadTable()
+        view.reloadTable(willShowLoader: false)
     }
 }
 
@@ -73,7 +73,7 @@ extension TTPTasksListPresenter {
         guard let view = view as? TTPTasksListView else { return }
         self.tasks = tasks
         DispatchQueue.main.async {
-            view.reloadTable()
+            view.reloadTable(willShowLoader: true)
         }
     }
     
