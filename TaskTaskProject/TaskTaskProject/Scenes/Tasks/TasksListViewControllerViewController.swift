@@ -22,7 +22,7 @@ final class TTPTasksListViewController: UIViewController {
     
     private lazy var tasksTableView: UITableView = {
         let table = UITableView()
-        table.register(TTPTasksSubtitleTableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(TTPTasksSubtitleTableViewCell.self, forCellReuseIdentifier: TTPConstants.taskListTableViewCellReusableIdentifier)
         table.isHidden = true
         return table
     }()
@@ -95,8 +95,8 @@ extension TTPTasksListViewController: TTPTasksListView {
     }
     
     func showAlertController() {
-        let alert = UIAlertController(title: "Something Happened", message: "Somehitng went wrong try again later.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Try Again", comment: "Default action"), style: .default, handler: { _ in
+        let alert = UIAlertController(title: TTPConstants.somethingHappenedText, message: TTPConstants.somethingWentWrongText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: TTPConstants.tryAgainText, style: .default, handler: { _ in
             guard let presenter = self.presenter as? TTPTasksListPresenterProtocol else { return }
             presenter.viewDidLoad()
         }))
@@ -111,7 +111,7 @@ extension TTPTasksListViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: TTPConstants.taskListTableViewCellReusableIdentifier, for: indexPath)
         guard let presenter = presenter as? TTPTasksListPresenter else { return cell }
         let row = indexPath.row
         cell.textLabel?.text = presenter.getTaskName(at: row, with: searchController.isActive)

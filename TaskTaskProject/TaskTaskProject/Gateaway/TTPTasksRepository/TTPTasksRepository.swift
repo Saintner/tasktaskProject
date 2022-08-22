@@ -27,7 +27,7 @@ final class TTPTasksServices: TTPTasksServicesProtocol {
     }
     
     func fetchTasks() -> AnyPublisher<TTPTaskRepositoryResponse, TTPError> {
-        let endpoint = TTPEndpoint.tasks(with: "1007")
+        let endpoint = TTPEndpoint.tasks(with: TTPConstants.tasksListSearchQueryValue)
         return networkManager.fetch(type: TTPTaskRepositoryResponse.self, url: endpoint.url)
     }
 }

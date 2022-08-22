@@ -15,7 +15,7 @@ struct TTPEndpoint {
 
 extension TTPEndpoint {
     static func tasks(with id:String) -> Self {
-        let queryItem = URLQueryItem(name: "tenantId", value: id)
+        let queryItem = URLQueryItem(name: TTPConstants.tasksListSearchQueryName, value: id)
         return TTPEndpoint(endpoint: .getTasks, queryItems: [queryItem])
     }
 }
@@ -29,7 +29,7 @@ extension TTPEndpoint {
         components.path = endpoint.rawValue()
         components.queryItems = queryItems
         guard let url = components.url else {
-            preconditionFailure("Invalid URL components: \(components)")
+            preconditionFailure(TTPConstants.UrlConstants.invalidUrlComponents  + " \(components)")
         }
         return url
     }

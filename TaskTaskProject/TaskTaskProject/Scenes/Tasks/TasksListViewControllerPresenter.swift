@@ -23,7 +23,7 @@ final class TTPTasksListPresenter {
     var router: TTPRouter!
     var tasks: [Task]?
     var searchedTasks: [Task]?
-    private var searchedText: String? = ""
+    private var searchedText: String? = TTPConstants.emptyString
     
 }
 
