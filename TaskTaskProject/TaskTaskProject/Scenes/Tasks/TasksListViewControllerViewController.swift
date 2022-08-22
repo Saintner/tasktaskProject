@@ -9,7 +9,9 @@
 import UIKit
 import SnapKit
 
-protocol TTPTasksListView: TTPView {}
+protocol TTPTasksListView: TTPView {
+    func reloadTable()
+}
 
 final class TTPTasksListViewController: UIViewController {
     
@@ -22,12 +24,19 @@ final class TTPTasksListViewController: UIViewController {
         return textField
     }()
     
+    private lazy var tasksTableView: UITableView = {
+        let table = UITableView()
+        table.register(TTPTasksSubtitleTableViewCell.self, forCellReuseIdentifier: "cell")
+        return table
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         guard let presenter = presenter as? TTPTasksListPresenter else { return }
         presenter.viewDidLoad()
         setupSearchTextField()
+        setupTasksTableView()
         // Do any additional setup after loading the view.
     }
     
@@ -40,8 +49,43 @@ final class TTPTasksListViewController: UIViewController {
             make.height.equalTo(50)
         }
     }
+    
+    private func setupTasksTableView() {
+        view.addSubview(tasksTableView)
+        tasksTableView.delegate = self
+        tasksTableView.dataSource = self
+        tasksTableView.snp.makeConstraints { make in
+            make.topMargin.equalTo(searchTextField.snp.bottomMargin).offset(20)
+            make.leading.equalTo(10)
+            make.trailing.equalTo(-28)
+            make.bottomMargin.equalTo(40)
+        }
+    }
 }
 
 extension TTPTasksListViewController: TTPTasksListView {
+    func reloadTable() {
+        tasksTableView.reloadData()
+    }
+}
+
+extension TTPTasksListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let presenter = presenter as? TTPTasksListPresenter else { return 0 }
+        return presenter.getTasksCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let presenter = presenter as? TTPTasksListPresenter else { return cell }
+        let row = indexPath.row
+        cell.textLabel?.text = presenter.getTaskName(at: row)
+        cell.detailTextLabel?.text = presenter.getTaskSubtitle(at: row)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
     
 }

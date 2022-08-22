@@ -32,6 +32,7 @@
 		CE443AD428B327E500D2C0FF /* TTPTasksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AD328B327E500D2C0FF /* TTPTasksRepository.swift */; };
 		CE443AD628B3283800D2C0FF /* TTPTaskRepositoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AD528B3283800D2C0FF /* TTPTaskRepositoryResponse.swift */; };
 		CE443AD828B328BB00D2C0FF /* TTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443AD728B328BB00D2C0FF /* TTPTask.swift */; };
+		CE443ADB28B343D500D2C0FF /* TTPTasksSubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE443ADA28B343D500D2C0FF /* TTPTasksSubtitleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		CE443AD328B327E500D2C0FF /* TTPTasksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPTasksRepository.swift; sourceTree = "<group>"; };
 		CE443AD528B3283800D2C0FF /* TTPTaskRepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPTaskRepositoryResponse.swift; sourceTree = "<group>"; };
 		CE443AD728B328BB00D2C0FF /* TTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPTask.swift; sourceTree = "<group>"; };
+		CE443ADA28B343D500D2C0FF /* TTPTasksSubtitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPTasksSubtitleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		CE443AAF28B2B05A00D2C0FF /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				CE443AD928B343A900D2C0FF /* TasksListTableViewSubtitleCell */,
 				CE443AB628B2F8D900D2C0FF /* TasksListViewControllerPresenter.swift */,
 				CE443AB728B2F8D900D2C0FF /* TasksListViewControllerInteractor.swift */,
 				CE443AB828B2F8D900D2C0FF /* TasksListViewControllerViewController.swift */,
@@ -222,6 +225,14 @@
 				CE443AD328B327E500D2C0FF /* TTPTasksRepository.swift */,
 			);
 			path = TTPTasksRepository;
+			sourceTree = "<group>";
+		};
+		CE443AD928B343A900D2C0FF /* TasksListTableViewSubtitleCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE443ADA28B343D500D2C0FF /* TTPTasksSubtitleTableViewCell.swift */,
+			);
+			path = TasksListTableViewSubtitleCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +385,7 @@
 				CE443ABB28B2F8D900D2C0FF /* TasksListViewControllerInteractor.swift in Sources */,
 				CE443AD628B3283800D2C0FF /* TTPTaskRepositoryResponse.swift in Sources */,
 				CE443ABD28B2F8D900D2C0FF /* TasksListViewControllerRouter.swift in Sources */,
+				CE443ADB28B343D500D2C0FF /* TTPTasksSubtitleTableViewCell.swift in Sources */,
 				CE443AD828B328BB00D2C0FF /* TTPTask.swift in Sources */,
 				CE443AC028B2FE9400D2C0FF /* TaskInteractor.swift in Sources */,
 				CE443ACB28B3158500D2C0FF /* TTPEndpoint.swift in Sources */,
